@@ -10,11 +10,10 @@ export class HelloWorldComponent implements OnInit {
 
   constructor(private greetingService: GreetingService) { }
 
-  greeting: Greeting = {id: 1, content: 'loremispum'};
+  greeting: Greeting = {id: 1, content: ''};
 
-  greeting2: Greeting = {id: 1, content: ''};
   ngOnInit() {
-    this.showGreeting();
+
   }
 
   showGreeting() {
@@ -23,12 +22,8 @@ export class HelloWorldComponent implements OnInit {
   }
   // Not a great way to update the json, must use PUT
   save(): void {
-    this.greetingService.getGreetingFromInput(this.greeting2.content).subscribe(
-      (data: Greeting) => this.greeting = {...data}
-    );
+    this.greetingService.getGreetingFromInput(this.greeting).subscribe();
 
-    this.greeting = {id: this.greeting.id, content: `Hello, ${this.greeting2.content}`};
-    this.greeting2 = {id: this.greeting2.id, content: ''};
   }
 
 }

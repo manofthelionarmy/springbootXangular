@@ -1,9 +1,7 @@
 <div class="jumbotron">
     <h1 class="text-center">Hello Works!</h1>
-    <p>{{greeting?.id}}</p>
-    <p>{{greeting?.content}}</p>
     <label>Enter name: <input placeholder="name" class="form-control" [(ngModel)]=
-"greeting2.content"></label>
-    <button class="btn btn-primary" (click)="save()">Update Greeting</button>
-   
+"greeting.content"></label>
+    <button class="btn btn-primary" (click)="save(); greeting.content=''">Update Greeting</button>
+    <a href="/"><button class="btn btn-default" style="width: 145px;">Reload</button></a>
 </div>

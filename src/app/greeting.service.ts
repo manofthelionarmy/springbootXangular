@@ -4,7 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'my-auth-token'
+  })
 };
 
 @Injectable({
@@ -22,9 +25,9 @@ export class GreetingService {
     return this.http.get<Greeting>(url);
   }
   // PUT
-  getGreetingFromInput(greeting: String): Observable<Greeting> {
-    const  url = `http://localhost:8080/greeting?name=${greeting}`;
-    return this.http.get<Greeting>(url);
+  getGreetingFromInput(greeting: Greeting): Observable<any> {
+    const url = 'http://localhost:8080/greeting';
+    return this.http.put(url, greeting, httpOptions);
   }
 
 }
