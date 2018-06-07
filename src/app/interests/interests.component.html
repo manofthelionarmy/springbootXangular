@@ -1,5 +1,15 @@
 <div class="jumbotron">
-<p>
-  interests works!
-</p>
+    <p>
+        interests works!
+    </p>
+    <label>Add an interest: <input class="form-control" placeholder="hobby"></label>
+    <button class="btn btn-primary">Add Interest</button>
+    <a href="/"><button class="btn btn-default" style="width: 115px;">Reload</button></a>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of interests$ | async">
+            {{item.id}}: {{item.interests}}
+        </li>
+    </ul>
+    
+    
 </div>
